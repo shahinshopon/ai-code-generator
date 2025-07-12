@@ -53,6 +53,10 @@ export default function Home() {
   const [reply, setReply] = useState('');
   const [loading, setLoading] = useState(false);
 
+  const [showPreview, setShowPreview] = useState(false);
+
+  const gitpodURL = 'https://3000-shahinshopo-aicodegener-b9mhy5foikf.ws-us120.gitpod.io/';
+
   const handleClick = async () => {
     if (!inputValue.trim()) return;
 
@@ -103,6 +107,26 @@ export default function Home() {
       {reply && (
         <p className="mt-6 text-gray-700 text-lg whitespace-pre-line">{reply}</p>
       )}
+
+      <button
+        onClick={() => setShowPreview(true)}
+        className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+      >
+        Show Preview
+      </button>
+
+      {showPreview && (
+        <iframe
+          src={gitpodURL}
+          title="Gitpod IDE"
+          width="100%"
+          height="500"
+          className="mt-6 border rounded-md shadow-lg"
+          sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+        ></iframe>
+      )}
+
+
     </div>
   );
 }
