@@ -137,6 +137,7 @@
 //   );
 // }
 
+'use client';
 // app/page.js - Working version with dynamic import
 import dynamic from 'next/dynamic';
 
